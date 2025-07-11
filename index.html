@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VideoIA Free Edition</title>
+  <style>
+    body {
+      background: #0d0d0d;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    input, select, button {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      background: #00f59c;
+      color: #000;
+      font-weight: bold;
+    }
+    video {
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+    .spinner {
+      border: 6px solid #222;
+      border-top: 6px solid #00f59c;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: auto;
+      display: none;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 VideoIA Free Edition 🔥</h1>
+  <p>Generador de videos sensuales con IA (gratis)</p>
+
+  <select id="prompt">
+    <option value="">🎬 Elige un estilo sexy</option>
+    <option value="modelo sensual posando en lencería, iluminación suave">Chica en lencería</option>
+    <option value="joven atractivo en camisa abierta, mirada provocadora">Chico con camisa abierta</option>
+    <option value="pareja coqueta abrazándose, fondo íntimo">Pareja sensual abrazada</option>
+    <option value="modelo femenina en pose provocativa sobre cama, estilo artístico">Chica en cama artística</option>
+    <option value="modelo masculino sin camisa bajo luces cálidas, expresión seductora">Chico sin camisa</option>
+  </select><br />
+
+  <button onclick="generar()">Generar Video 🔥</button>
+  <div class="spinner" id="spinner"></div>
+  <p id="estado"></p>
+
+  <video id="video" controls style="display:none;"></video><br />
+  <a id="download" href="#" download="videoia.mp4" style="display:none;">⬇️ Descargar Video</a>
+
+  <script>
+    function generar() {
+      const prompt = document.getElementById("prompt").value;
+      const estado = document.getElementById("estado");
+      const spinner = document.getElementById("spinner");
+      const video = document.getElementById("video");
+      const link = document.getElementById("download");
+
+      if (!prompt) {
+        estado.textContent = "⚠️ Selecciona un estilo sensual primero.";
+        return;
+      }
+
+      estado.textContent = "⏳ Generando video sexy con IA...";
+      spinner.style.display = "block";
+      video.style.display = "none";
+      link.style.display = "none";
+
+      setTimeout(() => {
+        spinner.style.display = "none";
+        estado.textContent = "✅ Video generado con éxito (simulado).";
+        video.src = "video-demo.mp4";
+        video.style.display = "block";
+        link.href = "video-demo.mp4";
+        link.style.display = "inline-block";
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
